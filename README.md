@@ -1,5 +1,10 @@
 In the project folder, you will find `node_server`, which is responsible for sending silent push notifications.
 
+Current only tested on Android:
+
+- Copy `google-services.json` into `android/app/`
+- Copy `admin.json` into `node_server/`
+
 - **Endpoint: `/send-silent-push`**  
   This endpoint requires two parameters:
   1. **Device token**: You can obtain this by running the application and checking the debug log.
