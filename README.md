@@ -3,6 +3,7 @@ In the project folder, you will find `node_server`, which is responsible for sen
 Current only tested on Android:
 
 - Copy `google-services.json` into `android/app/`
+- Copy `GoogleService-Info.plist` into `ios/Runner/`
 - Copy `admin.json` into `node_server/`
 
 - **Endpoint: `/send-silent-push`**  
