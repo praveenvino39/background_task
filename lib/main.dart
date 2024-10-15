@@ -25,6 +25,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await FirebaseMessaging.instance.requestPermission(alert: true);
   final token = await FirebaseMessaging.instance.getToken();
   log(token.toString());
   FirebaseMessaging.onBackgroundMessage(backgroundHandler);
@@ -53,6 +54,7 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> {
   String response = '';
+  String token = '';
   @override
   void initState() {
     loadRespons();
@@ -76,7 +78,19 @@ class _MainAppState extends State<MainApp> {
             const SizedBox(
               height: 50,
             ),
-            Text(response)
+            Text(response),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(token),
+            ElevatedButton(
+                onPressed: () async {
+                  final fcmToken = await FirebaseMessaging.instance.getToken();
+                  setState(() {
+                    token = fcmToken.toString();
+                  });
+                },
+                child: const Text("GET TOKEN"))
           ],
         ),
         // This trailing comma makes auto-formatting nicer for build methods.
