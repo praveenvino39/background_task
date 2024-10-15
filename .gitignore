@@ -111,3 +111,4 @@ windows/flutter/
 windows/.dart_tool/
 windows/build/
 node_server/admin.json
+node_server/.yarn/
